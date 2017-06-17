@@ -1,8 +1,6 @@
-var table = "";
-
 Object.keys(products.items).forEach(function(key) {
     var element = document.createElement('div');
-    element.innerHTML = "<button type=\"button\" onclick=\"add(" + key + ")\">"+products.items[key].name+"</button> ";
+    element.innerHTML = "<button type=\"button\" class=\"btn btn-primary btn-block\" onclick=\"add(" + key + ")\">"+products.items[key].name+"</button> ";
     document.getElementById('main').appendChild(element);
 });
 
@@ -18,7 +16,7 @@ function calc(){
 }
 
 function add(key){
-	table = "";
+	var table = "";
 	products.items[key].amount = products.items[key].amount + 1;
 	console.log(products.items[key].amount);
 	Object.keys(products.items).forEach(function(key) {
@@ -30,4 +28,14 @@ function add(key){
 	calc();
 }
 
+function reset(){
+	Object.keys(products.items).forEach(function(key) {
+		products.items[key].amount = 0;
+	});
+	
+	var element = document.getElementById("sumTable");
+	element.innerHTML =  "";
+	
+	calc();
+}
 			
