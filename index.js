@@ -20,7 +20,9 @@ function add(key){
 	products.items[key].amount = products.items[key].amount + 1;
 	console.log(products.items[key].amount);
 	Object.keys(products.items).forEach(function(key) {
-		table = table + "<tr>" + products.items[key].name + " " + products.items[key].amount + "</tr><br>";
+		if(products.items[key].amount){ 
+			table = table + "<tr>" + products.items[key].amount + " " + products.items[key].name + "</tr><br>";
+		}
 	});
 	var element = document.getElementById("sumTable");
 	element.innerHTML =  table;
